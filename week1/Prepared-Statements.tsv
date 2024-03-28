@@ -1,0 +1,8 @@
+Wat zijn prepared statements?|Soort van functies in een databank. Server-side objecten die eventueel parameters accepteren. Kan gebruikt worden om performantie te optimaliseren (meerdere keren dezelfde of gelijkaardige queries uitvoeren).
+Wat is de lifetime van een Prepare statement?|De lengte van de DB connectie of tot er DEALLOCATE wordt gebruikt.
+Wat is de syntax van een Prepare statement?|PREPARE name [ ( data_type [, ...] ) ] AS statement
+What's the flow of a Prepare statement?|1) PREPARE 2) EXECUTE ... 3) DEALLOCATE
+Geef een voorbeeld van een volledig prepare statement|PREPARE add_customer (numeric(4,0), varchar(20), varchar(20), date) (\n meaning next line) AS INSERT INTO klanten VALUES($1, $2, $3, $4); (\n) EXECUTE add_customer(100, 'Lieve', 'Standaert', now());
+Hoe wordt er in een Prepare statement naar de parameters verwezen?|via dollar-sign ($) en de positie waar het argument zich bevind (vb. 1) => PREPARE add_customer (numeric(4,0), varchar(20), varchar(20), date) (\n)\n) AS INSERT INTO klanten VALUES($1, $2, $3, $4);
+Wat is de syntax van het EXECUTE statement?|EXECUTE name [ ( parameter [, ...] ) ]
+Wat is de syntax van het DEALLOCATE statement?|DEALLOCATE { name | ALL }

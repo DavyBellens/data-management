@@ -1,0 +1,18 @@
+Wat is een Schema?|Een namespace
+Wat is de standaard namespace?|"public"
+Hoe kan je de geselecteerde namespace nakijken?|SHOW search_path;
+Wat is bij sommige andere producten de standaard/default namespace?|de usernaam
+Wat is de syntax van Rechten toekennen?|GRANT --privilege-- ON (\n) --objecttype-- --objectname-- (\n) TO --role--;
+Wat is de syntax van Rechten wegnemen?|REVOKE --privilege-- ON (\n) --objecttype-- --objectname-- (\n) FROM --role--;
+Wat is de syntax van Rechten doorgeven?|GRANT --privilege-- ON (\n) --objecttype-- --objectname-- (\n) TO --role-- (\n) WITH GRANT OPTION;
+Wat zijn alle verschillende privileges?|- SELECT - INSERT - UPDATE - DELETE - EXECUTE - ALL PRIVILEGES
+Wat zijn alle soorten Localisatie opties?|LC_COLLATE --- string volgorde, LC_CTYPE --- character classificatie, LC_MESSAGES --- taal van het bericht, LC_MONETARY --- formatteren valuta, LC_NUMERIC --- formatteren nummers, LC_TIME --- formatteren tijd
+Waarom moet men opletten voor de Locale instellingen?|Sommige letters komen op andere plaatsen voor in hun corresponderende alfabet en dus bij sorteren kan je onverwachte resultaten krijgen
+Hoelang is char(n) ?|Vaste lengte (n) =-- plaats wordt gereserveerd ook indien deze plaats niet gebruikt wordt
+Hoelang is varchar(n) ?|flexibele lengte met maximum (dus lengte --=n) =-- mogelijks trager
+Hoelang is het datatype "text" ?|onbeperkte variabele lengte zonder maximum =-- mogelijks traagst
+Wat is het verschil tussen Strings en Identifiers?|Strings worden uitgedrukt met single quotes ('), identifiers met double quotes (") =-- in de praktijk: sqlcode is case insensitive tenzij tussen quotes. vb. SET "SEARCH_PATH" to 'tennis';
+Wat is het IDENTITY datatype?|Geen echte sleutel, eerder een sequence. Mogelijke exploits zijn de voorspelbaarheid --- in URL, mijn id is vb. 10, wat als ik dit verander naar vb. 11
+Wat gebeurt er wanneer er een kolom (vb. id_demo) voor Primary key wordt aangemaakt? |Dit zal een impliciete sequentie (vb. id_demo_seq) aanmaken voor IDENTITY kolom (vb. id_demo) 
+Wat gebeurt er wanneer je een kolom van datatype "IDENTITY" creëert?|Dan wordt er een extra object aangemaakt (een sequence)
+Hoe kan ik rechten toekennen op een sequence?|"GRANT --privilege-- ON SEQUENCE sequence_name TO --role--;" oftewel "GRANT --privilege-- ON ALL SEQUENCES IN SCHEMA schema_name TO --role--;"

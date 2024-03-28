@@ -1,0 +1,5 @@
+Wat zijn tijdelijke tabellen?|Tabellen die je tijdelijk kan maken om een bepaald resultaat bij te houden.
+Wat is de lifetime van tijdelijke tabellen?|Normaal lengte van DB connectie
+Wat zijn deferrable constraints?|Zeg dat de verplichte checks pas moeten worden uitgevoerd vlak vóór het committen, niet vroeger => vermijd constraint violations
+Wat zijn voorbeelden van Refererende acties m.b.t. referentiële integriteit?|NO ACTION (default), RESTRICT (=no action, niet uitstelbaar (deferrable)), CASCADE (waterval => gevaarlijk), SET NULL(fk1) (optie om zinvolle selectie van verwijzende kolommen op te geven), SET DEFAULT: als er een zinvolle default is (optie cf set null)
+Welke 2 schema's zitten standaard in een databank?|information_schema, pg_catalog

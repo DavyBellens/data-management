@@ -1,0 +1,21 @@
+Wat is referentiëele integriteit?|Dat het object waarnaar je refereert ook effectief bestaat
+Wat is een transactie?|een verzameling van SQL-instructies die door één gebruiker ingevoerd wordt en waarvan de mutaties blijvend moeten zijn of ongedaan worden (commit of rollback)
+Wat is een commit?|Het permanent maken van een transactie
+Wat is een roolback?|Het ongedaan maken van een transactie
+Geef voorbeeld van expliciete start van een transactie|start transaction; <sql code>; commit/rollback;
+Wat zijn SavePoints?|Zoals checkpoints in een game. Ze houden de staat bij van het moment dat de savepoint werd uitgevoerd waardoor je hier altijd terug heen kan in geval je iets fout hebt gedaan (vb. tabel verwijderd)
+Wat zijn de 5 problemen bij multi-user gebruik?|1) Dirty Read (uncommitted) 2) NonRepeatable (NonReproducible) Read 3) Phantom Read 4) Lost Update 5) Serialization Anomaly
+Wat is Dirty Read?|Wanneer een transactie data leest die gecreëerd is door een gelijktijdige transactie die nog niet gecommit is
+Wat is NonRepeatable Read?|Wanneer een transactie data leest en wanneer deze data opnieuw word opgevraagd deze anders is, door een andere transactie (van iemand anders) die gecommit is, sinds de eerste lees-operatie.
+Wat is een Phantom Read?|Wanneer een transactie data herleest (eerst 1 keer opvraagt en leest, en erna nog eens de data opvraagt om opnieuw te lezen) maar bij de tweede lezing er nieuwe data is bijgekomen of oude data is verwijderd. (Enkel INSERT/DELETE in T1 en enkel SELECT in T2)
+Wat is Lost Update?|Wanneer de veranderingen van de laatste commit van gelijktijdige transacties die dezelfde rijen updaten zullen behouden worden (T1 start, T2 start, T1 update, T2 update, T1 commit, T2 commit, nieuwe value is die van T2 -> begonnen met dezelfde data maar (mogelijks anders geüpdatet en) later gecommit)
+Wat is Serialization Anomaly?|Een andere volgorde van overlappende transacties zorgt voor een ander resultaat (lijkt op Phantom Read, maar deze bevat ook update)
+Wat is de oplossing voor de problemen van multi-user gebruik?|De transacties serieel verwerken
+Wat is de oplossing voor de problemen van multi-user gebruik als er honderden gebruikers tegelijk willen werken?|Transacties parallel verwerken (door eventueel gebruik te maken van LOCKS)
+Wat is Locking?|De rij waar één gebruiker mee werkt word gelocked voor de andere gebruikers. Heeft verschillende opties voor granulariteit en rechten (vb. SHARE en EXCLUSIVE)
+Wat zijn DeadLocks?|Indien twee of meerdere gebruikers op elkaar wachten.
+Wat is de oplossing tegen DeadLocks?|Indien er een deadlock aanwezig is wordt één transactie afgebroken
+Wat is een transactie ISOLATION LEVEL?|De mate van isolatie van gebruikers
+Wat zijn de niveau's van transactie ISOLATION LEVELS?|1) Serializable (maximaal gescheiden) 2) Repeatable Read (lezen: SHARE locks (stopt na transactie), muteren: EXCLUSIVE locks) 3) Read Committed (lezen: SHARE locks (stopt na SELECT), muteren: EXCLUSIVE locks) 4) Read Uncommitted (lezen: SHARE locks (stopt na SELECT), muteren: EXCLUSIVE locks (stopt na mutatie))
+Wat zijn de gevolgen van Serializable en Read Uncommitted?|Serializable=> concurrency laagst -> snelheid laagst, Read Uncommitted=> concurrency hoog (weinig wachter) -> kunnen gegevens lezen die iets later niet meer bestaan -> snel
+Hoe zet je transaction isolation level?|"Set transaction isolation level vb. serializable"
