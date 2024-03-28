@@ -1,0 +1,4 @@
+Waarom gebruikt men destructors?|Om te zorgen dat dingen vergelijkbaar zijn vb. -> 'honderd'>50 is niet vergelijkbaar -> 100>50 wel dus heeft men een destructor nodig om 'honderd' om te zetten naar 100
+Waarom gebruikt men dollar-quoting?|Normaal moet dit in double-quotes maar dan moet men double quotes escapen in de query wat de leesbaarheid verlaagt
+Does ref support referential integrity?|No
+Wat is een lampreel?|een jong konijn
